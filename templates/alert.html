@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "head.html" %}
+    <title>Prize Alert</title>
+    <body>
+        <!-- Navigation-->
+        {% include "navbar.html" %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../static/assets/img/contact-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            {% if message == True %}
+                                <h1>Successfully sent message</h1>
+                            {% elif message == False: %}
+                                <h1>Prize Alert</h1>
+                            {% elif message_no == True: %}
+                                <h1>Please enter all fields</h1>
+                            {% endif %}
+                            <span class="subheading">Enter Amazon Url Of You Desired Product We Will Notify You If It's Lower Than Your Desired Price </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                      <div class="my-5">
+                            <form id="contactForm" action="{{ url_for('alert') }}" method="post">
+                                <div class="form-floating">
+                                    <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" name="name"/>
+                                    <label for="name">Name</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="email" type="email" placeholder="Enter your email..." data-sb-validations="required,email" name="email"/>
+                                    <label for="email">Email address</label>
+                                    <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                    <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="phone" type="tel" placeholder="Enter Your Product Url" data-sb-validations="required" name="url"/>
+                                    <label for="phone">Url From Amazon</label>
+                                    <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="phone" type="number" placeholder="Enter Your Desired Price" data-sb-validations="required" name="price"/>
+                                    <label for="phone">Enter Your Desired Price</label>
+                                    <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                </div>
+                                <br />
+                                <div class="d-none" id="submitSuccessMessage">
+                                    <div class="text-center mb-3">
+                                        <div class="fw-bolder">Form submission successful!</div>
+                                        To activate this form, sign up at
+                                        <br />
+                                        <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                    </div>
+                                </div>
+                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                                <!-- Submit Button-->
+                                <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Send</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer-->
+        {% include "footer.html" %}
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="static/js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

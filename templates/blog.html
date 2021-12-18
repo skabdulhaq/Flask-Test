@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "head.html" %}
+    <title>Blogs</title>
+</head>
+<body>
+    {% include "navbar.html" %}
+    <header class="masthead" style="background-color: #FFE74C; ">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Blogs</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+            <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    {% for blog in blogs%}
+                    <div class="post-preview">
+                        <a href="{{ url_for("post_page", title=blog["title"]) }}">
+                            <h2 class="post-title">{{ blog["title"] }}</h2>
+                            <h3 class="post-subtitle">{{ blog["description"] }}</h3>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="#">{{ blog["author"]}}</a>
+                            on {{ blog["publishedAt"] }}
+                        </p>
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    {% endfor %}
+{#                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase float-right" href="#">next </a></div>#}
+{#                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase float-left" href="#">previous </a></div>#}
+{#<div class="btn-group" role="group" aria-label="Basic example">#}
+{#  <button type="button" class="btn btn-secondary">Left</button>#}
+{#  <button type="button" class="btn btn-secondary">Middle</button>#}
+{#</div>#}
+{#                <div class="container">#}
+                <div class="row">
+                  <div class="col">
+                    <a class="text-uppercase" href="/blogs/{{ prev }}"><button class="btn btn-primary btn-sm text-center form-control d-flex justify-content-end ">PREVIOUS</button></a>
+                  </div>
+                  <div class="col">
+                    <a class="text-uppercase" href="/blogs/{{ next }}"><button class="btn btn-primary btn-sm form-control text-center d-flex justify-content-end " >NEXT</button></a>
+                </div>
+              </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>
