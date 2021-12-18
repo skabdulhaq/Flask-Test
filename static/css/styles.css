@@ -410,6 +410,14 @@ output {
 
 iframe {
   border: 0;
+  height: 500px;
+  width: 600px;
+}
+
+.heading-qs{
+  text-align: center;
+  margin-top: 2rem;
+margin-bottom: 1.5rem;
 }
 
 summary {

@@ -67,6 +67,11 @@ def home():
     return render_template("index.html", all_list=RESULT, float=float, round=round)
 
 
+@app.route("/quickstart")
+def quick_start():
+    return render_template("quickstart.html")
+
+
 @app.route("/resources")
 def learning():
     return render_template("learning.html")
