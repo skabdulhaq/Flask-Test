@@ -14,8 +14,7 @@ def data_crypto():
             "apikey": api_key_stocks
         }
         response = requests.get(url=end_point_stock_market, params=PARA_stocks)
-        # print(response.json())
-        # print(response.json()["Realtime Currency Exchange Rate"])
+        response.raise_for_status()
         RESULT.append(response.json()["Realtime Currency Exchange Rate"])
     return RESULT
-# print(data_crypto())
+print(data_crypto())

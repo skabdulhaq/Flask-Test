@@ -79,15 +79,16 @@ prev = live()
 
 @app.route('/')
 def home():
-    global prev
-    if random.randint(1,100) == 6:
-        try:
-            RESULT = live()
-            prev = RESULT
-        except:
-            RESULT = prev
-    else:
-        RESULT = prev
+#     global prev
+#     if random.randint(1,100) == 6:
+#         try:
+#             RESULT = live()
+#             prev = RESULT
+#         except:
+#             RESULT = prev
+#     else:
+#         RESULT = prev
+    RESULT = [{'1. From_Currency Code': 'BTC', '2. From_Currency Name': 'Bitcoin', '3. To_Currency Code': 'INR', '4. To_Currency Name': 'Indian Rupee', '5. Exchange Rate': '3574290.92000000', '6. Last Refreshed': '2021-12-18 12:17:20', '7. Time Zone': 'UTC', '8. Bid Price': '3574290.92000000', '9. Ask Price': '3574291.67976000'}, {'1. From_Currency Code': 'ETH', '2. From_Currency Name': 'Ethereum', '3. To_Currency Code': 'INR', '4. To_Currency Name': 'Indian Rupee', '5. Exchange Rate': '301652.07136000', '6. Last Refreshed': '2021-12-18 12:18:04', '7. Time Zone': 'UTC', '8. Bid Price': '301659.66896000', '9. Ask Price': '301660.42872000'}, {'1. From_Currency Code': 'BNB', '2. From_Currency Name': 'Binance-Coin', '3. To_Currency Code': 'INR', '4. To_Currency Name': 'Indian Rupee', '5. Exchange Rate': '40470.54819300', '6. Last Refreshed': '2021-12-18 12:19:09', '7. Time Zone': 'UTC', '8. Bid Price': '40470.54819300', '9. Ask Price': '40470.54819300'}, {'1. From_Currency Code': 'USDT', '2. From_Currency Name': 'Tether', '3. To_Currency Code': 'INR', '4. To_Currency Name': 'Indian Rupee', '5. Exchange Rate': '76.09155989', '6. Last Refreshed': '2021-12-18 12:19:10', '7. Time Zone': 'UTC', '8. Bid Price': '76.09155989', '9. Ask Price': '76.09155989'}, {'1. From_Currency Code': 'DOGE', '2. From_Currency Name': 'DogeCoin', '3. To_Currency Code': 'INR', '4. To_Currency Name': 'Indian Rupee', '5. Exchange Rate': '13.12865280', '6. Last Refreshed': '2021-12-18 12:20:14', '7. Time Zone': 'UTC', '8. Bid Price': '13.12105520', '9. Ask Price': '13.12865280'}]
     return render_template("index.html", all_list=RESULT, float=float, round=round)
 
 
