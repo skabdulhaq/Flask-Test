@@ -1,10 +1,8 @@
 import datetime
 import math
-import random
-import gunicorn
 import requests
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, request
 from post import post_render
 import atexit
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -30,17 +28,6 @@ class Useralerts(db.Model):
     email = db.Column(db.String(30), nullable=False)
     url = db.Column(db.String(120), nullable=False)
     price = db.Column(db.String(12), nullable=False)
-
-
-def check_everyone():
-    search = Useralerts.query.filter_by().all()
-    for _ in search:
-        price_data(URL_=_.url, name=_.name, email=_.email, set_price=_.price)
-
-
-scheduler = BackgroundScheduler()
-scheduler.add_job(func=check_everyone, trigger="interval", seconds=60*60*24)
-scheduler.start()
 
 
 class Posts(db.Model):
@@ -72,7 +59,6 @@ def live():
                            params={"function": "CURRENCY_EXCHANGE_RATE", "from_currency": investment, "to_currency": "INR",
                                    "apikey": api_key_stocks}).json()["Realtime Currency Exchange Rate"] for investment in ALL_INVESTMENTS]
     return RESULT
-
 # prev = live()
 
 @app.route('/')
@@ -81,9 +67,14 @@ def home():
     return render_template("index.html", all_list=RESULT, float=float, round=round)
 
 
-@app.route("/learning")
+@app.route("/resources")
 def learning():
     return render_template("learning.html")
+
+
+@app.route("/guidance")
+def guide():
+    return render_template("guide.html")
 
 
 @app.route("/why-to-invest")
@@ -145,4 +136,3 @@ def post_page(title):
 
 if __name__ == "__main__":
     app.run(debug=True)
-atexit.register(lambda: scheduler.shutdown())
