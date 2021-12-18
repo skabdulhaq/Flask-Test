@@ -8,6 +8,7 @@
     {% include "navbar.html" %}
     <header class="masthead" style="background-image: url('../static/assets/img/bg.jpeg') ">
             <div class="container position-relative px-4 px-lg-5">
+
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
@@ -21,7 +22,13 @@
     <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                <h2>Crypto Currency's</h2>
+                    <a href="{{ url_for("ytolearnpage") }}"><h2 style="text-align: center"> Why To Invest ? </h2></a>
+                    <br>
+                    <hr>
+                    <br>
+                    <h2 style="text-align: center"> Live Updates </h2>
+                    <br>
+                    <h2>Crypto Currency's</h2>
                 <br>
                     <table class="table table-bordered">
                         <thead>
@@ -40,10 +47,10 @@
                           </tr>
                           {% endfor %}
                         </tbody>
-              </div>
+                    </table>
                 </div>
-            </div>
+                </div>
         </div>
-
 </body>
+{% include "footer.html" %}
 </html>

@@ -1,10 +1,10 @@
-
-
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
+.add-padding{
+  padding: 5% 15%;
+}
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;
@@ -17,7 +17,7 @@ body {
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
-  text-align: var(--bs-body-text-align);
+  /*text-align: var(--bs-body-text-align);*/
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -11001,7 +11001,7 @@ blockquote {
 @media (min-width: 992px) {
   #mainNav {
     border-bottom: 1px solid transparent;
-    background: transparent;
+    /*background: transparent;*/
   }
   #mainNav .navbar-brand {
     color: #fff;
@@ -11054,7 +11054,10 @@ footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
+.heading-blog{
 
+  text-align: center;
+}
 .heading{
   text-align: center;
   margin-top: 5rem;
@@ -11187,6 +11190,9 @@ header.masthead .site-heading .h1 {
 .post-preview > a > .post-subtitle {
   font-weight: 300;
   margin-bottom: 0.625rem;
+}
+.post-subtitle-blog{
+  font-size: 1.25rem;
 }
 .post-preview > .post-meta {
   font-size: 1.125rem;
