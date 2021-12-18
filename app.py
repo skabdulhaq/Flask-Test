@@ -1,54 +1,22 @@
-import datetime
 import math
 import requests
-from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, request
 from post import post_render
-import atexit
-from apscheduler.schedulers.background import BackgroundScheduler
-from pricealert import price_data
+import pyrebase
 
-
+firebaseConfig = {
+    "apiKey": "AIzaSyBqg842FDWDh5ZE7ImJ3oBptePQnUgpy4g",
+    "authDomain": "let-s-finance.firebaseapp.com",
+    "projectId": "let-s-finance",
+    "storageBucket": "let-s-finance.appspot.com",
+    "messagingSenderId": "106707857115",
+    "appId": "1:106707857115:web:32e95cda814008d312a6fe",
+    "measurementId": "G-W7MRTG1J4G",
+    "databaseURL": "https://let-s-finance-default-rtdb.firebaseio.com/"
+}
 post_p_page = 5
-
-blog_url = "https://api.npoint.io/1f04dd8c4be2ca91e869"
 app = Flask(__name__)
 app.secret_key = "key"
-# all_blogs = requests.get(blog_url).json()
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/hackathon'
-db = SQLAlchemy(app)
-admin_uname = "admin@example.com"
-admin_pass = "admin"
-
-
-class Useralerts(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False)
-    time = db.Column(db.String(30), nullable=True)
-    email = db.Column(db.String(30), nullable=False)
-    url = db.Column(db.String(120), nullable=False)
-    price = db.Column(db.String(12), nullable=False)
-
-
-class Posts(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(20), nullable=False)
-    short_description = db.Column(db.String(30), nullable=False)
-    full_description = db.Column(db.String(12000), nullable=False)
-    author = db.Column(db.String(12), nullable=False)
-    slug = db.Column(db.String(30), nullable=False)
-    image_link = db.Column(db.String(20), nullable=False)
-    time = db.Column(db.String(10))
-
-
-def save(name, email, url, price):
-    entry = Useralerts(name=name,
-                       email=email,
-                       time=datetime.datetime.now(), url=url,
-                       price=price)
-    db.session.add(entry)
-    db.session.commit()
-
 api_key_stocks = "AU35YGX6GFB5PHT8"
 end_point_stock_market = "https://www.alphavantage.co/query"
 ALL_INVESTMENTS = ["BTC", "ETH", "BNB", "USDT", "DOGE"]
@@ -59,7 +27,13 @@ def live():
                            params={"function": "CURRENCY_EXCHANGE_RATE", "from_currency": investment, "to_currency": "INR",
                                    "apikey": api_key_stocks}).json()["Realtime Currency Exchange Rate"] for investment in ALL_INVESTMENTS]
     return RESULT
-# prev = live()
+
+
+def save(item):
+    firebase = pyrebase.initialize_app(firebaseConfig)
+    data_base = firebase.database()
+    data_base.push(item)
+
 
 @app.route('/')
 def home():
@@ -94,7 +68,12 @@ def alert():
         email = request.form["email"]
         url = request.form["url"]
         min_price = request.form["price"]
-        save(name, email, url, min_price)
+        packet = {"name": name,
+                  "email": email,
+                  "url": url,
+                  "min": min_price,
+                  }
+        save(packet)
     return render_template("alert.html", message=False)
 
 
