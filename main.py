@@ -1,5 +1,7 @@
 import datetime
 import math
+import random
+
 import requests
 import live_data
 # from live_data import *
@@ -67,10 +69,26 @@ end_point_stock_market = "https://www.alphavantage.co/query"
 ALL_INVESTMENTS = ["BTC", "ETH", "BNB", "USDT", "DOGE"]
 
 
+def live():
+    RESULT = [requests.get(url=end_point_stock_market,
+                           params={"function": "CURRENCY_EXCHANGE_RATE", "from_currency": investment, "to_currency": "INR",
+                                   "apikey": api_key_stocks}).json()["Realtime Currency Exchange Rate"] for investment in ALL_INVESTMENTS]
+    return RESULT
+
+prev = live()
+
 @app.route('/')
 def home():
-    RESULT = [requests.get(url=end_point_stock_market, params={"function": "CURRENCY_EXCHANGE_RATE","from_currency": investment,"to_currency": "INR","apikey": api_key_stocks}).json()["Realtime Currency Exchange Rate"] for investment in ALL_INVESTMENTS ]
-    return render_template("index.html", all_list=RESULT)
+    global prev
+    if random.randint(1,100) == 6:
+        try:
+            RESULT = live()
+            prev = RESULT
+        except:
+            RESULT = prev
+    else:
+        RESULT = prev
+    return render_template("index.html", all_list=RESULT, float=float, round=round)
 
 
 @app.route("/learning")

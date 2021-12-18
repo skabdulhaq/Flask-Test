@@ -1,2 +1,2 @@
-password_google = "SAYmyname@2021"
-email_google = "sk.abdulhaq2004@gmail.com"
+password_google = "Letsfinance@123"
+email_google = "Letsfinancesupp@gmail.com"

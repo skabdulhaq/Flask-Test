@@ -39,6 +39,7 @@ def ok_to_buy(current_price, set_price):
         return False
 
 
+
 def price_data(URL_, name, email, set_price):
     current_price_ = scraper(URL_)
     api_key_stocks = "AU35YGX6GFB5PHT8"
