@@ -75,7 +75,7 @@ def live():
                                    "apikey": api_key_stocks}).json()["Realtime Currency Exchange Rate"] for investment in ALL_INVESTMENTS]
     return RESULT
 
-prev = live()
+# prev = live()
 
 @app.route('/')
 def home():
