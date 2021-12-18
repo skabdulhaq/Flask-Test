@@ -11058,6 +11058,9 @@ footer {
 
   text-align: center;
 }
+.new-head{
+  color: white !important;
+}
 .heading{
   text-align: center;
   margin-top: 5rem;
