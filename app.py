@@ -3,6 +3,10 @@ import requests
 from flask import Flask, render_template, request
 from post import post_render
 import pyrebase
+from emailsender import EmailSender
+from secrates import email_google
+from secrates import password_google
+
 
 firebaseConfig = {
     "apiKey": "AIzaSyBqg842FDWDh5ZE7ImJ3oBptePQnUgpy4g",
@@ -33,6 +37,13 @@ def save(item):
     firebase = pyrebase.initialize_app(firebaseConfig)
     data_base = firebase.database()
     data_base.push(item)
+
+client = EmailSender(email_google, password_google, email_provider="gmail")
+
+
+def mail_me(name, phone, email, message):
+    client.email_send(email, f"{name} want to tell something", f"{message}\n {name}'s phone number {phone}")
+
 
 
 @app.route('/')
@@ -78,6 +89,17 @@ def alert():
 
 
 all_bbs = []
+
+@app.route("/support", methods=["POST", "GET"])
+def support():
+    if request.method == "POST":
+        name = request.form["name"]
+        phone = request.form["phone"]
+        email = request.form["email"]
+        message = request.form["message"]
+        mail_me(name, phone, email, message)
+        return render_template("support.html", message=True)
+    return render_template("support.html")
 
 
 @app.route("/blogs/")

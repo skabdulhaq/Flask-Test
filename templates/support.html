@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     {% include "head.html" %}
-    <title>Prize Alert</title>
+    <title>Support</title>
     <body>
         <!-- Navigation-->
         {% include "navbar.html" %}
@@ -11,14 +11,13 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading new-head">
-                            {% if message == True %}
-                                <h1>Successfully sent message</h1>
-                            {% elif message == False: %}
-                                <h1>Price Alert</h1>
-                            {% elif message_no == True: %}
-                                <h1>Please enter all fields</h1>
+                            {% if message==True %}
+                            <h1>Sent...</h1>
+                            <h2 class="">I will reply you soon</h2>
+                            {% else %}
+                            <h1>Support</h1>
+                            <h2 class="">You have questions i have answers </h2>
                             {% endif %}
-                            <h2 class="">Enter Amazon Url Of You Desired Product We Will Notify You If It's Lower Than Your Desired Price </h2>
                         </div>
                     </div>
                 </div>
@@ -30,7 +29,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                       <div class="my-5">
-                            <form id="contactForm" action="{{ url_for('alert') }}" method="post">
+                            <form id="contactForm" action="{{ url_for('support') }}" method="post">
                                 <div class="form-floating">
                                     <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" name="name"/>
                                     <label for="name">Name</label>
@@ -43,24 +42,17 @@
                                     <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="phone" type="tel" placeholder="Enter Your Product Url" data-sb-validations="required" name="url"/>
-                                    <label for="phone">Url From Amazon</label>
-                                    <div class="invalid-feedback" data-sb-feedback="phone:required">A amazon url is required.</div>
+                                    <input class="form-control" id="phone" type="tel" placeholder="Phone Number" data-sb-validations="required" name="phone"/>
+                                    <label for="phone">Phone Number</label>
+                                    <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="phone" type="number" placeholder="Enter Your Desired Price" data-sb-validations="required" name="price"/>
-                                    <label for="phone">Enter Your Desired Price</label>
-                                    <div class="invalid-feedback" data-sb-feedback="phone:required">Your desired price is required.</div>
+                                    <textarea class="form-control" id="phone" placeholder="Enter Your Desired Price" data-sb-validations="required" name="message"></textarea>
+                                    <label for="phone">Message</label>
+                                    <div class="invalid-feedback" data-sb-feedback="phone:required">A message is required.</div>
                                 </div>
+
                                 <br />
-                                <div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3">
-                                        <div class="fw-bolder">Form submission successful!</div>
-                                        To activate this form, sign up at
-                                        <br />
-                                        <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                    </div>
-                                </div>
                                 <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                                 <!-- Submit Button-->
                                 <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Send</button>
