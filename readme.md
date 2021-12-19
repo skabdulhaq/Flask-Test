@@ -1,9 +1,9 @@
 #                                        BLUELEARN HACKATHON!
 ##                                       TERMINAL TITANS
-##Website: <a href="https://letsfinance001.herokuapp.com/" target="_blank">LETS FINANCE!</a>
-<h3><a href="#">Demo Video</a></h3>
-###                           ONE STOP SOLUTION TO ALL YOUR FINANCIAL HASSLES!
-## Our <a href="https://letsfinance001.herokuapp.com/" target="_blank">website</a> provides the users with:
+<h3>Website: <a href="https://letsfinance001.herokuapp.com/" target="_blank">LETS FINANCE!</a></h3>
+<h3>Demo Video: <a href="www.google.com">Video</a></h3>
+<h2>                           ONE STOP SOLUTION TO ALL YOUR FINANCIAL HASSLES!</h2>
+<h3>Our <a href="https://letsfinance001.herokuapp.com/" target="_blank">website</a> provides the users with:</h3>
 <h3>    1.Gives guidance tips and articles on finance,economy,investment,crypto,shares,gold!  
     <br>2.All the investments apps and broker apps are in the same place for easy access! 
     <br>3.Sends you email when a particular product you chose in amazon is at low cost!
