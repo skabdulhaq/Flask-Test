@@ -5,14 +5,14 @@
 
 ## Our <a href="https://letsfinance001.herokuapp.com/" target="_blank">website</a> provides the users with:
 
-#***Gives guidance tips and articles on finance,economy,investment,crypto,shares,gold!  
-    #All the investments apps and broker apps are in the same place for easy access! 
-    #Sends you email when a particular product you chose in amazon is at low cost!
-    #we have a text to audio converter!
-    #Helps track live market situation and crypto prices 24x7!
-    #Helps you keep track of all your income and expenses in a hassle free format!
-    #lot of blogs and articles which will help users learn finance!
-    #24x7 email support!
+<h2>Gives guidance tips and articles on finance,economy,investment,crypto,shares,gold!  
+    <br>All the investments apps and broker apps are in the same place for easy access! 
+    <br>Sends you email when a particular product you chose in amazon is at low cost!
+    <br>we have a text to audio converter!
+    <br>Helps track live market situation and crypto prices 24x7!
+    <br>Helps you keep track of all your income and expenses in a hassle free format!
+    <br>lot of blogs and articles which will help users learn finance!
+    <br>24x7 email support!</h2>
 
 
 
