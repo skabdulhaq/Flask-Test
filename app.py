@@ -138,7 +138,7 @@ def post_page(title):
                                    time=blog["publishedAt"],
                                    fd=blog["content"],
                                    url=blog["url"])
-    return render_template("post.html")
+    # return render_template("post.html")
 
 
 if __name__ == "__main__":
