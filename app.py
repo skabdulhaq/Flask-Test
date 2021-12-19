@@ -42,7 +42,7 @@ client = EmailSender(email_google, password_google, email_provider="gmail")
 
 
 def mail_me(name, phone, email, message):
-    client.email_send(email, f"{name} want to tell something", f"{message}\n {name}'s phone number {phone}")
+    client.email_send(email_google, f"{name} want to tell something", f"{message}\n {name}'s phone number {phone} and mail : {email}")
 
 
 

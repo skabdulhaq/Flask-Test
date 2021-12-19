@@ -1,2 +1,2 @@
-password_google = "Letsfinance@123"
+password_google = "letsfinance123"
 email_google = "Letsfinancesupp@gmail.com"
