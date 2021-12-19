@@ -1,13 +1,13 @@
-    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="{{ url_for('home') }}" style="color: black;">Let's Finance</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class=" collapse navbar-collapse " id="navbarNav">
-                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <div class="navheader-div " >
+    <a class="navbar-brand" href="{{ url_for('home') }}" style="color: black;">Let's Finance</a>
+    <button class="navbar-toggler " style="position: absolute; right: 2rem" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+        Menu
+        <i class="fas fa-bars"></i>
+    </button>
+  </div>
+  <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+    <ul class="navbar-nav ms-3 ms-auto ">
                     <div class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href='{{ url_for('home') }}'>Home</a>
                     </div>
                     <div class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
@@ -23,6 +23,5 @@
                     <div class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
                             href='{{ url_for('support') }}'>Support</a></div>
                 </ul>
-            </div>
-        </div>
-    </nav>
+  </div>
+</nav>
