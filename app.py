@@ -45,7 +45,6 @@ def mail_me(name, phone, email, message):
     client.email_send(email_google, f"{name} want to tell something", f"{message}\n {name}'s phone number {phone} and mail : {email}")
 
 
-
 @app.route('/')
 def home():
     RESULT = [{'1. From_Currency Code': 'BTC', '2. From_Currency Name': 'Bitcoin', '3. To_Currency Code': 'INR', '4. To_Currency Name': 'Indian Rupee', '5. Exchange Rate': '3574290.92000000', '6. Last Refreshed': '2021-12-18 12:17:20', '7. Time Zone': 'UTC', '8. Bid Price': '3574290.92000000', '9. Ask Price': '3574291.67976000'}, {'1. From_Currency Code': 'ETH', '2. From_Currency Name': 'Ethereum', '3. To_Currency Code': 'INR', '4. To_Currency Name': 'Indian Rupee', '5. Exchange Rate': '301652.07136000', '6. Last Refreshed': '2021-12-18 12:18:04', '7. Time Zone': 'UTC', '8. Bid Price': '301659.66896000', '9. Ask Price': '301660.42872000'}, {'1. From_Currency Code': 'BNB', '2. From_Currency Name': 'Binance-Coin', '3. To_Currency Code': 'INR', '4. To_Currency Name': 'Indian Rupee', '5. Exchange Rate': '40470.54819300', '6. Last Refreshed': '2021-12-18 12:19:09', '7. Time Zone': 'UTC', '8. Bid Price': '40470.54819300', '9. Ask Price': '40470.54819300'}, {'1. From_Currency Code': 'USDT', '2. From_Currency Name': 'Tether', '3. To_Currency Code': 'INR', '4. To_Currency Name': 'Indian Rupee', '5. Exchange Rate': '76.09155989', '6. Last Refreshed': '2021-12-18 12:19:10', '7. Time Zone': 'UTC', '8. Bid Price': '76.09155989', '9. Ask Price': '76.09155989'}, {'1. From_Currency Code': 'DOGE', '2. From_Currency Name': 'DogeCoin', '3. To_Currency Code': 'INR', '4. To_Currency Name': 'Indian Rupee', '5. Exchange Rate': '13.12865280', '6. Last Refreshed': '2021-12-18 12:20:14', '7. Time Zone': 'UTC', '8. Bid Price': '13.12105520', '9. Ask Price': '13.12865280'}]
@@ -90,6 +89,7 @@ def alert():
 
 all_bbs = []
 
+
 @app.route("/support", methods=["POST", "GET"])
 def support():
     if request.method == "POST":
@@ -115,14 +115,14 @@ def blog_page():
     all_bbs = all_post
     if page == 1:
         prev = "#"
-        next = "/?page=" + str(page + 1)
+        next_ = "/?page=" + str(page + 1)
     elif page == last:
         prev = "/?page=" + str(page - 1)
-        next = "#"
+        next_ = "#"
     else:
         prev = "/?page=" + str(page - 1)
-        next = "/?page=" + str(page + 1)
-    return render_template("blog.html", blogs=all_post, next=next, prev=prev)
+        next_ = "/?page=" + str(page + 1)
+    return render_template("blog.html", blogs=all_post, next=next_, prev=prev)
 
 
 @app.route("/blog/<title>")
@@ -139,6 +139,7 @@ def post_page(title):
                                    fd=blog["content"],
                                    url=blog["url"])
     return render_template("post.html")
+
 
 if __name__ == "__main__":
     app.run()
