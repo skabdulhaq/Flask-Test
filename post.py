@@ -5,7 +5,7 @@ import requests
 
 
 def post_render() -> list:
-    topic = ["investing"]
+    topic = ["business", "investment", "investing", "stock"]
     news_endpoint = "https://newsapi.org/v2/everything"
     api_key_news = "c5131eefa9ff4e29a00ec04e7947e053"
     param_news = {
