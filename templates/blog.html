@@ -37,13 +37,8 @@
                     <!-- Divider-->
                     <hr class="my-4" />
                     {% endfor %}
-                <div class="row">
-                  <div class="col">
-                    <a class="text-uppercase" href="/blogs/{{ prev }}"><button class="btn btn-primary btn-sm text-center form-control d-flex justify-content-end ">PREVIOUS</button></a>
-                  </div>
-                  <div class="col">
-                    <a class="text-uppercase" href="/blogs/{{ next }}"><button class="btn btn-primary btn-sm form-control text-center d-flex justify-content-end " >NEXT</button></a>
-                </div>
+                    <a href="/blogs/{{ prev }}"><button class="btn padding-my-btn btn-primary">PREVIOUS</button></a>
+                    <a href="/blogs/{{ next }}"><button class="btn btn-primary padding-my-btn" href="/blogs/{{ next }}" style="margin-left:55%; position: absolute ">NEXT</button></a>
               </div>
                 </div>
             </div>
