@@ -1,5 +1,4 @@
-#                                        BLUELEARN HACKATHON!
-##                                       TERMINAL TITANS
+#                                       TERMINAL TITANS
 <h3>Website: <a href="https://letsfinance001.herokuapp.com/" target="_blank">LETS FINANCE!</a></h3>
 <h3>Demo Video: <a href="www.google.com">Video</a></h3>
 <h2>                           ONE STOP SOLUTION TO ALL YOUR FINANCIAL HASSLES!</h2>
