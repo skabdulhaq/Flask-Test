@@ -1,4 +1,4 @@
-######                                        BLUELEARN HACKATHON!
+#                                        BLUELEARN HACKATHON!
 #####                                       --TERMINAL TITANS--
 ####                                           LETS FINANCE!
 ###                          > (ONE STOP SOLUTION TO ALL YOUR FINANCIAL HASSLES!)
