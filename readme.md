@@ -1,5 +1,4 @@
 # Let's Finance
-#                                       TERMINAL TITANS
 
 <h3>Website: <a href="https://letsfinance001.herokuapp.com/" target="_blank">LETS FINANCE!</a></h3>
 <h3>Demo Video: <a href="www.google.com">Video</a></h3>
@@ -14,3 +13,4 @@
     <br>7.lot of blogs and articles which will help users learn finance!
     <br>8.24x7 email support!</h3>
     
+<h2>Terminal Titans</h2>
