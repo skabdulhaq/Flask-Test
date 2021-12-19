@@ -141,4 +141,4 @@ def post_page(title):
     return render_template("post.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
