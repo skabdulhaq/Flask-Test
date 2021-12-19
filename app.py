@@ -106,6 +106,7 @@ def support():
 def blog_page():
     global all_bbs
     all_posts = post_render()
+    # global all_posts
     page = request.args.get('page')
     last = math.ceil(len(all_posts) / post_p_page)
     if not str(page).isnumeric():
@@ -125,7 +126,7 @@ def blog_page():
     return render_template("blog.html", blogs=all_post, next=next_, prev=prev)
 
 
-@app.route("/blog/<title>")
+@app.route("/blogs/<title>")
 def post_page(title):
     global all_bbs
     for blog in all_bbs:
@@ -138,8 +139,8 @@ def post_page(title):
                                    time=blog["publishedAt"],
                                    fd=blog["content"],
                                    url=blog["url"])
-    # return render_template("post.html")
+    return render_template("post.html")
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
