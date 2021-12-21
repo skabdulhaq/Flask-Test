@@ -12,13 +12,15 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading new-head">
                             {% if message == True %}
-                                <h1>Successfully sent message</h1>
+                                <h1>Successfully added yor product</h1>
+                                <h2>We will check price every day morning you may get email if price is less.</h2>
                             {% elif message == False: %}
                                 <h1>Price Alert</h1>
+                                <h2 class="">Enter <a href="https://www.amazon.in/">Amazon</a> Url Of You Desired Product We Will Notify You If It's Lower Than Your Desired Price </h2>
                             {% elif message_no == True: %}
                                 <h1>Please enter all fields</h1>
+{#                            {% elif message == "" %}#}
                             {% endif %}
-                            <h2 class="">Enter <a href="https://www.amazon.in/">Amazon</a> Url Of You Desired Product We Will Notify You If It's Lower Than Your Desired Price </h2>
                         </div>
                     </div>
                 </div>
@@ -54,14 +56,6 @@
                                     <div class="invalid-feedback" data-sb-feedback="phone:required">Your desired price is required.</div>
                                 </div>
                                 <br />
-                                <div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3">
-                                        <div class="fw-bolder">Form submission successful!</div>
-                                        To activate this form, sign up at
-                                        <br />
-                                        <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                    </div>
-                                </div>
                                 <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                                 <!-- Submit Button-->
                                 <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Send</button>

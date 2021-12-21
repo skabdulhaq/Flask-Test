@@ -78,12 +78,16 @@ def alert():
         email = request.form["email"]
         url = request.form["url"]
         min_price = request.form["price"]
-        packet = {"name": name,
-                  "email": email,
-                  "url": url,
-                  "min": min_price,
-                  }
-        save(packet)
+        if name != "" and email != "" and url != "" and min_price != "":
+            packet = {"name": name,
+                      "email": email,
+                      "url": url,
+                      "min": min_price,
+                      }
+            save(packet)
+        else:
+            return render_template("alert.html", message_no=True)
+        return render_template("alert.html", message=True)
     return render_template("alert.html", message=False)
 
 
@@ -97,8 +101,11 @@ def support():
         phone = request.form["phone"]
         email = request.form["email"]
         message = request.form["message"]
-        mail_me(name, phone, email, message)
-        return render_template("support.html", message=True)
+        if name != "" and phone != "" and email != "" and message != "":
+            mail_me(name, phone, email, message)
+            return render_template("support.html", message=True)
+        else:
+            return render_template("support.html", message="TF")
     return render_template("support.html")
 
 
