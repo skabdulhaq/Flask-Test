@@ -29,9 +29,9 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <p>
-                            {{ sd }}
+                            {{ sd | safe}}
                             <br>
-                            {{ fd }}
+                            {{ fd | safe}}
                             <br>
                             <a href="{{ url }}" target="_blank">source</a>
                         </p>
